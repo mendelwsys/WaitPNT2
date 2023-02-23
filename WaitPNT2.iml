@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="J2ME_MODULE" version="4">
+  <component name="DOJASettings">
+    <jarUrl jarUrlName="" />
+    <manifest useUserManifest="false" />
+  </component>
+  <component name="J2ME Module Properties">
+    <mobileApplicationType name="MIDP" />
+  </component>
+  <component name="MIDPSettings">
+    <setting name="MIDlet-1" module.settings.user.defined.value="WPSender,,su.org.imglab.clengine.WPSender" />
+    <setting name="MIDlet-Description" module.settings.user.defined.value="GPS Data Sender" />
+    <setting name="MIDlet-Jar-Size" module.settings.user.defined.value="100554" />
+    <setting name="MIDlet-Jar-URL" module.settings.user.defined.value="WaitPNT2.jar" />
+    <setting name="MIDlet-Name" module.settings.user.defined.value="WaitPNT2" />
+    <setting name="MIDlet-Vendor" module.settings.user.defined.value="Mobile Solutions" />
+    <setting name="MIDlet-Version" module.settings.user.defined.value="1.02" />
+    <setting name="MicroEdition-Configuration" module.settings.user.defined.value="CLDC-1.1" />
+    <setting name="MicroEdition-Profile" module.settings.user.defined.value="MIDP-2.0" />
+    <jarUrl jarUrlName="$MODULE_DIR$/WaitPNT2.jar" />
+    <descriptionPath path="$MODULE_DIR$/WaitPNT2.jad" useUserDescriptor="false" />
+    <manifest useUserManifest="false" />
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_4" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/WaitPnt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src_nk" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/DECODER" />
+      <excludeFolder url="file://$MODULE_DIR$/EditorUtils" />
+      <excludeFolder url="file://$MODULE_DIR$/GPSServer" />
+      <excludeFolder url="file://$MODULE_DIR$/GisEditor" />
+      <excludeFolder url="file://$MODULE_DIR$/GisUtils" />
+      <excludeFolder url="file://$MODULE_DIR$/Gpstest" />
+      <excludeFolder url="file://$MODULE_DIR$/IDL(S)" />
+      <excludeFolder url="file://$MODULE_DIR$/Map_GPS_CONNECT_NK" />
+      <excludeFolder url="file://$MODULE_DIR$/RasterSupplier" />
+      <excludeFolder url="file://$MODULE_DIR$/src_nk" />
+      <excludeFolder url="file://$MODULE_DIR$/src_sm" />
+      <excludeFolder url="file://$MODULE_DIR$/src_sm_new" />
+    </content>
+    <orderEntry type="jdk" jdkName="J2ME Wireless Toolkit 2.2" jdkType="MobileSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="EditorUtils" />
+    <orderEntry type="library" name="mobile" level="application" />
+    <orderEntryProperties />
+  </component>
+  <component name="com.intellij.j2meplugin.module.settings.midp.MIDPSettings">
+    <setting name="MIDlet-1" module.settings.user.defined.value="WaitPNT2,,su.org.imglab.clengine.statgenerate.CreateOlegPaths" />
+    <setting name="MIDlet-Jar-Size" module.settings.user.defined.value="100561" />
+    <setting name="MIDlet-Jar-URL" module.settings.user.defined.value="WaitPNT2.jar" />
+    <setting name="MIDlet-Name" module.settings.user.defined.value="WaitPNT2" />
+    <setting name="MIDlet-Vendor" module.settings.user.defined.value="SusaninGPS" />
+    <setting name="MIDlet-Version" module.settings.user.defined.value="1.0" />
+    <setting name="MicroEdition-Configuration" module.settings.user.defined.value="CLDC-1.1" />
+    <setting name="MicroEdition-Profile" module.settings.user.defined.value="MIDP-2.0" />
+    <jarUrl jarUrlName="$MODULE_DIR$/WaitPNT2.jar" />
+    <descriptionPath path="$MODULE_DIR$/WaitPNT2.jad" useUserDescriptor="false" />
+    <manifest useUserManifest="false" />
+  </component>
+</module>
+
