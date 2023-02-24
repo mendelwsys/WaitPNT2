@@ -1,6 +1,7 @@
 package ru.ts.toykernel.plugins.cvviewer;
 
 
+import ru.ts.toykernel.gui.util.GuiFormEncoder;
 import ru.ts.utils.gui.tables.IHeaderSupplyer;
 import ru.ts.utils.gui.tables.THeader;
 import ru.ts.utils.IOperation;
@@ -263,6 +264,7 @@ public class CurveOptions
 		}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_FOCUSED);
 
 		optionsTable.setModel(dataModel);
+		GuiFormEncoder.getInstance().rec(contentPane);
 	}
 
 	public static void main(String[] args)
