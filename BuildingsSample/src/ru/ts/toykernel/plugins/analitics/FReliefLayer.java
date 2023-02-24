@@ -25,14 +25,14 @@ public class FReliefLayer extends ReliefLayer {
     protected IProjConverter _copyConverter;
     protected Point _drawSize;
     protected BufferedImage _bufferedImage;
-    protected boolean repaintIt=false;
+    volatile protected boolean repaintIt=false;
 
     protected Iterator<IBaseGisObject> getVisibleObjects(Graphics graphics, ILinearConverter converter,
                                                          Point drawSize) throws Exception {
         return storage.getAllObjects();
     }
 
-    public synchronized void  resetLayer()
+    public void  resetLayer()
     {
         repaintIt=true;
     }
@@ -210,10 +210,8 @@ public class FReliefLayer extends ReliefLayer {
                    }
                }
         }
-        synchronized (this)
-        {
-            repaintIt=false;
-        }
+        repaintIt=false;
+
         return _bufferedImage;
     }
 
