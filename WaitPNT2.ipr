@@ -462,6 +462,8 @@
       <module fileurl="file://$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" filepath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonUtils/CommonUtils.iml" filepath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/Converters/Converters.iml" filepath="$PROJECT_DIR$/Converters/Converters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ToyDFX/DFX1/DFX1.iml" filepath="$PROJECT_DIR$/../ToyDFX/DFX1/DFX1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DFX2/DFX2.iml" filepath="$PROJECT_DIR$/DFX2/DFX2.iml" />
       <module fileurl="file://$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" filepath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/FacilTable/FacilTable.iml" filepath="$PROJECT_DIR$/FacilTable/FacilTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/FormatReaders/FormatReaders.iml" filepath="$PROJECT_DIR$/FormatReaders/FormatReaders.iml" />
