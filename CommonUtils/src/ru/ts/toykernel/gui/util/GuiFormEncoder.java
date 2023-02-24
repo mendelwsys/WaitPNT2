@@ -29,7 +29,7 @@ public class GuiFormEncoder
         {
             JLabel component1 = (JLabel) component;
             String text= component1.getText();
-            if (text.startsWith("$"))
+            if (text!=null && text.startsWith("$"))
                 component1.setText(Enc.get(text));
         }
         else
@@ -37,7 +37,7 @@ public class GuiFormEncoder
         {
             JButton component1 = (JButton) component;
             String text= component1.getText();
-            if (text.startsWith("$"))
+            if (text!=null && text.startsWith("$"))
                 component1.setText(Enc.get(text));
         }
         else
@@ -45,7 +45,7 @@ public class GuiFormEncoder
         {
             JCheckBox component1 = (JCheckBox) component;
             String text= component1.getText();
-            if (text.startsWith("$"))
+            if (text!=null && text.startsWith("$"))
                 component1.setText(Enc.get(text));
         }
         else if (component instanceof Container)
@@ -57,7 +57,7 @@ public class GuiFormEncoder
                 for (int i = 0; i < cnt; i++)
                 {
                     String text=component1.getTitleAt(i);
-                    if (text.startsWith("$"))
+                    if (text!=null && text.startsWith("$"))
                         component1.setTitleAt(i,Enc.get(text));
                 }
             }
