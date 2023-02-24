@@ -25,7 +25,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="DFX1" />
     <orderEntry type="module" module-name="DxfAddIn" />
     <orderEntry type="library" name="dbf" level="application" />
   </component>
