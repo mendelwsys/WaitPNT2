@@ -37,7 +37,9 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="" />
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1037,7 +1039,7 @@
       <recent name="ru.ts.toykernel.drawcomp.rules.def" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Moscow_Demo">
+  <component name="RunManager" selected="Application.DxfView_Demo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -2791,7 +2793,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677231483961</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="DFX EXCLUDE 5">
+      <created>1677231868108</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677231868108</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
