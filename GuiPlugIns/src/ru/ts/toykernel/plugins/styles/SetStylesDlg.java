@@ -86,7 +86,10 @@ public class SetStylesDlg
 
 		public String getColumnName(int col)
 		{
-			return headersupplyer.getOptionsRepresent()[col].getNameField(0);
+
+			String nameField = headersupplyer.getOptionsRepresent()[col].getNameField(0);
+			nameField = Enc.get("$"+nameField+"$");
+			return nameField;
 		}
 
 	};
