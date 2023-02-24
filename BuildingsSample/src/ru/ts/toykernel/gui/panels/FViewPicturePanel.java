@@ -93,7 +93,6 @@ public class FViewPicturePanel extends ViewPicturePanel2
 
                         Star star=new Star(bgColor,Color.BLACK,central.x,central.y,size);
                         star.draw(graphics);
-
                         graphics.setColor(color);
 
                     }
