@@ -21,7 +21,7 @@ public class FReliefLayer extends ReliefLayer {
     protected PointWithName potencialpoint;
     volatile protected boolean repaintMe = false;
     protected PointWithName[] ppoints;
-    protected double maxvalue=0;
+    volatile  protected double maxvalue=0;
     protected IProjConverter _copyConverter;
     protected Point _drawSize;
     protected BufferedImage _bufferedImage;
@@ -35,6 +35,7 @@ public class FReliefLayer extends ReliefLayer {
     public void  resetLayer()
     {
         repaintIt=true;
+        maxvalue=0;
     }
 
     public BufferedImage getLegent(int[] size)
