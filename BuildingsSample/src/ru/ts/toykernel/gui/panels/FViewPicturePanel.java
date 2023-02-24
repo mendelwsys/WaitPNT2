@@ -25,18 +25,19 @@ public class FViewPicturePanel extends ViewPicturePanel2
     public static final int DEF_DRAWWIDTH = 1280;//Используется внешне для установки начальных размеров окна
     public static final int DEF_DRAWHEIGHT = 960; //Используется внешне для установки начальных размеров окна
     public static final String DEFAULT_PICT = "DEFAULT_PICT";
-    public static final String VOK_2 = Enc.get("STATION_2_CLASS");
-    public static final String VOK = Enc.get("STATION");
-    public static final String BLD_PASS = Enc.get("PASSENGER_BUILDING");
-    public static final String PAV_PASS = Enc.get("PASSENGER_PAVILION");
-    public static final String PAV_TICK = Enc.get("TICKET_PAVILION");
-    public static final String PAV_OTHER = Enc.get("OTHER_PAVILION");
-    public static final String BLD_OTHER = Enc.get("OTHER_BUILDING");
-    static Map<String, IPict> lrn2pict=new HashMap<String, IPict>();
+    public static final String[] VOK_2 = new String[]{"Вокзал 2 класса",Enc.get("STATION_2_CLASS")};
+    public static final String[] VOK = new String[]{"Вокзал",Enc.get("STATION")};
+    public static final String[] BLD_PASS =new String[]{"Здание пассажирское",Enc.get("PASSENGER_BUILDING")};
+    public static final String[] PAV_PASS =new String[]{"Павильон пассажирский",Enc.get("PASSENGER_PAVILION")};
+    public static final String[] PAV_TICK = new String[]{"Павильон билетно-кассовый",Enc.get("TICKET_PAVILION")};
+    public static final String[] PAV_OTHER =new String[]{"Павильон прочий", Enc.get("OTHER_PAVILION")};
+    public static final String[] BLD_OTHER =new String[]{"Прочее здание",Enc.get("OTHER_BUILDING")};
+
+    static Map<String, Pair<IPict,String>> lrn2pict=new HashMap<String, Pair<IPict,String>>();
 
     static
     {
-        lrn2pict.put(DEFAULT_PICT,new IPict() //Рисование по умолчанию
+        lrn2pict.put(DEFAULT_PICT,new Pair<IPict, String>(new IPict() //Рисование по умолчанию
         {
             public void drawObject(Graphics graphics, Point central, boolean isselected)
             {
@@ -54,10 +55,10 @@ public class FViewPicturePanel extends ViewPicturePanel2
             {
                 return new int[]{10,10};
             }
-        });
+        },""));
 
         //Павильон пасажирский ffeeeeee
-        lrn2pict.put(VOK_2,new IPict()
+        lrn2pict.put(VOK_2[0],new Pair<IPict, String>(new IPict()
         {
             public int[] getSizeXY()
             {
@@ -103,9 +104,9 @@ public class FViewPicturePanel extends ViewPicturePanel2
                     }
                 }.drawObject(graphics,central, isselected);
             }
-        });
+        },VOK_2[1]));
 
-        lrn2pict.put(VOK,new IPict()
+        lrn2pict.put(VOK[0],new Pair<IPict, String>(new IPict()
         {
 
             public int[] getSizeXY()
@@ -126,10 +127,10 @@ public class FViewPicturePanel extends ViewPicturePanel2
 
                 graphics.setColor(color);
             }
-        });
+        },VOK[1]));
 
 
-        lrn2pict.put(BLD_PASS,new IPict()
+        lrn2pict.put(BLD_PASS[0],new Pair<IPict, String>(new IPict()
         {
 
             public int[] getSizeXY()
@@ -152,9 +153,9 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 graphics.drawPolyline(xPoint,yPoint,5);
                 graphics.setColor(color);
             }
-        });
+        },BLD_PASS[1]));
 
-        lrn2pict.put(PAV_TICK,new IPict()
+        lrn2pict.put(PAV_TICK[0],new Pair<IPict, String>(new IPict()
         {
 
             public int[] getSizeXY()
@@ -179,9 +180,9 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 graphics.setColor(color);
 
             }
-        });
+        },PAV_TICK[1]));
 
-        lrn2pict.put(PAV_OTHER,new IPict()
+        lrn2pict.put(PAV_OTHER[0],new Pair<IPict, String>(new IPict()
         {
 
             public int[] getSizeXY()
@@ -206,11 +207,11 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 graphics.setColor(color);
 
             }
-        });
+        },PAV_OTHER[1]));
 
 
 
-        lrn2pict.put(PAV_PASS,new IPict()
+        lrn2pict.put(PAV_PASS[0],new Pair<IPict, String>(new IPict()
         {
             public int[] getSizeXY()
             {
@@ -233,11 +234,11 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 graphics.setColor(color);
 
             }
-        });
+        },PAV_PASS[1]));
 
 
 
-        lrn2pict.put(BLD_OTHER,new IPict()
+        lrn2pict.put(BLD_OTHER[0],new Pair<IPict, String>(new IPict()
         {
             public int[] getSizeXY()
             {
@@ -259,7 +260,7 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 graphics.drawPolyline(xPoint,yPoint,5);
                 graphics.setColor(color);
             }
-        });
+        },BLD_OTHER[1]));
 
     }
 
@@ -318,9 +319,10 @@ public class FViewPicturePanel extends ViewPicturePanel2
             {
                 for (Pair<String,Color> active : actives)
                 {
-                    IPict pict = lrn2pict.get(active.first);
-                    if (pict==null)
-                        pict=lrn2pict.get(DEFAULT_PICT);
+                    Pair<IPict,String> pict2ViewName=lrn2pict.get(active.first);
+                    if (pict2ViewName==null)
+                        pict2ViewName=lrn2pict.get(DEFAULT_PICT);
+                    IPict pict=pict2ViewName.first;
                     int[] szXY = pict.getSizeXY();
                     int centralX=szXY[0]/2+5;
                     if (maxCntralX<centralX)
@@ -337,9 +339,10 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 for (Pair<String,Color> active : actives)
                 {
                     Rectangle2D rect = fm.getStringBounds(active.first, graph);
-                    IPict pict = lrn2pict.get(active.first);
-                    if (pict==null)
-                        pict=lrn2pict.get(DEFAULT_PICT);
+                    Pair<IPict,String> pict2ViewName=lrn2pict.get(active.first);
+                    if (pict2ViewName==null)
+                        pict2ViewName=lrn2pict.get(DEFAULT_PICT);
+                    IPict pict=pict2ViewName.first;
                     int[] szXY = pict.getSizeXY();
                     int x = (int) Math.ceil(rect.getWidth()) + maxCntralX+szXY[0]/2 + 15;
                     if (maxX < x)
@@ -356,16 +359,21 @@ public class FViewPicturePanel extends ViewPicturePanel2
                 int curY=0;
                 for (Pair<String,Color> active : actives)
                 {
-                    IPict pict=lrn2pict.get(active.first);
-                    if (pict==null)
-                        pict=lrn2pict.get(DEFAULT_PICT);
+                    Pair<IPict,String> pict2ViewName=lrn2pict.get(active.first);
+                    if (pict2ViewName==null)
+                        pict2ViewName=lrn2pict.get(DEFAULT_PICT);
+                    IPict pict=pict2ViewName.first;
+
                     int[] szXY = pict.getSizeXY();
     //                Rectangle2D rect = fm.getStringBounds(active.first, graph);
     //                big.setColor(new Color(0xffff5511,true));
                     big.setColor(active.second);
                     pict.drawObject(big, new Point(maxCntralX,curY+5+maxdY/2),true);
                     big.setColor(new Color(0xff111111,true));
-                    big.drawString(active.first,maxCntralX+szXY[0]/2+10,curY+5+maxdY/2);
+                    String drawString= pict2ViewName.second;
+                    if (drawString.length()==0)
+                        drawString=active.first;
+                    big.drawString(drawString,maxCntralX+szXY[0]/2+10,curY+5+maxdY/2);
                     curY+=maxdY+10;
                 }
             }
