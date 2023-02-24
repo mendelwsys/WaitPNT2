@@ -25,10 +25,16 @@ public class FReliefLayer extends ReliefLayer {
     protected IProjConverter _copyConverter;
     protected Point _drawSize;
     protected BufferedImage _bufferedImage;
+    protected boolean repaintIt=false;
 
     protected Iterator<IBaseGisObject> getVisibleObjects(Graphics graphics, ILinearConverter converter,
                                                          Point drawSize) throws Exception {
         return storage.getAllObjects();
+    }
+
+    public synchronized void  resetLayer()
+    {
+        repaintIt=true;
     }
 
     public BufferedImage getLegent(int[] size)
@@ -170,8 +176,9 @@ public class FReliefLayer extends ReliefLayer {
     {
         resetRepaint();
         if (
-                this._bufferedImage!=null &&
-                        viewPort.getDrawSize().equals(_drawSize)
+                !repaintIt &&
+                        (this._bufferedImage!=null &&
+                        viewPort.getDrawSize().equals(_drawSize))
             )
         {
             IProjConverter copyConverter = viewPort.getCopyConverter();
@@ -202,6 +209,10 @@ public class FReliefLayer extends ReliefLayer {
                        potencialpoint.y=drwPoint.y;
                    }
                }
+        }
+        synchronized (this)
+        {
+            repaintIt=false;
         }
         return _bufferedImage;
     }

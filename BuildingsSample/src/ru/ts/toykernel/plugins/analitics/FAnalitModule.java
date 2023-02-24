@@ -65,18 +65,21 @@ public class FAnalitModule extends AnalitModule
 
                             Map<String, List<Pair<String, Double>>> analitparams = acttbl.setAnalitByHeader(pr, field_formula);
                             FReliefProvider reliefProvider = (FReliefProvider) FAnalitModule.this.reliefProvider;
+                            ILayer analitLr=getLayerByName(projcontext,showLayerName);
                             if (reliefProvider==null)
                             {
-                                ILayer analitLr=getLayerByName(projcontext,showLayerName);
                                 if (analitLr instanceof ReliefLayer)
                                     reliefProvider = (FReliefProvider) ((ReliefLayer)analitLr).getReliefProvider();
                             }
+
 
                             if (reliefProvider!=null)
                                 reliefProvider.setAnalitParams(analitparams);
 
 
 
+                            if (analitLr instanceof FReliefLayer)
+                                ((FReliefLayer)analitLr).resetLayer();
                             String defTitle = app.getDefaultTitle();
                             MainformMonitor.frame.setTitle(defTitle+Enc.get("___ANALYTICS___")+field_formula.first);
                             fanalitcs = true;
