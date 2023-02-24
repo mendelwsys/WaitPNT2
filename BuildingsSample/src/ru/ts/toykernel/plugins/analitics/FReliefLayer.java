@@ -19,7 +19,7 @@ import java.util.Iterator;
 
 public class FReliefLayer extends ReliefLayer {
     protected PointWithName potencialpoint;
-    protected boolean repaintMe = false;
+    volatile protected boolean repaintMe = false;
     protected PointWithName[] ppoints;
     protected double maxvalue=0;
     protected IProjConverter _copyConverter;
