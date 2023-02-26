@@ -2916,7 +2916,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677406728667</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix Layer Style internalization">
+      <created>1677407999562</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677407999562</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -2994,9 +3001,9 @@
     <MESSAGE value="Fix Analitic Layer02" />
     <MESSAGE value="Fix Layer Analitics legent" />
     <MESSAGE value="read_ru.txt me adding" />
-    <MESSAGE value="Fix Layer Style internalization" />
     <MESSAGE value="Adding local library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding local library" />
+    <MESSAGE value="Fix Layer Style internalization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Layer Style internalization" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="VssConfiguration">
