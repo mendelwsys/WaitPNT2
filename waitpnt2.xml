@@ -1,0 +1,2369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="waitpnt2" default="all">
+  
+  
+  <property file="waitpnt2.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.zip"/>
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.ear"/>
+    <include name="*.jar"/>
+    <include name="*.klib"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.js"/>
+    <include name="**/?*.res"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  
+  
+  <!-- Project Libraries --> 
+  
+  <path id="library.access_jdbc30.classpath">
+    <pathelement location="${basedir}/libs/Access_JDBC30/Access_JDBC30.jar"/>
+  </path>
+  
+  <path id="library.appache.classpath">
+    <pathelement location="${basedir}/libs/web/jsp-api.jar"/>
+    <pathelement location="${basedir}/libs/web/servlet-api.jar"/>
+  </path>
+  
+  <path id="library.dbf.classpath">
+    <pathelement location="${basedir}/libs/dbf/javadbf-0.4.0.jar"/>
+  </path>
+  
+  <path id="library.geotols_min.classpath">
+    <pathelement location="${basedir}/libs/geotols_min/geoapi-nogenerics-2.1-M6.jar"/>
+    <pathelement location="${basedir}/libs/geotols_min/gt2-metadata-2.4-M4.jar"/>
+    <pathelement location="${basedir}/libs/geotols_min/gt2-referencing-2.4-M4.jar"/>
+    <pathelement location="${basedir}/libs/geotols_min/jsr108-0.01.jar"/>
+    <pathelement location="${basedir}/libs/geotols_min/vecmath-1.3.1.jar"/>
+  </path>
+  
+  <path id="library.jts.classpath">
+    <pathelement location="${basedir}/libs/jts/JTS_Test.jar"/>
+    <pathelement location="${basedir}/libs/jts/acme.jar"/>
+    <pathelement location="${basedir}/libs/jts/jdom.jar"/>
+    <pathelement location="${basedir}/libs/jts/jts-1.8.jar"/>
+    <pathelement location="${basedir}/libs/jts/jtsio-1.8.jar"/>
+    <pathelement location="${basedir}/libs/jts/junit.jar"/>
+    <pathelement location="${basedir}/libs/jts/xerces.jar"/>
+  </path>
+  
+  <path id="library.mobyplace.classpath">
+    <pathelement location="${basedir}/libs/mobyplace/multiplexer.jar"/>
+    <pathelement location="${basedir}/libs/mobyplace/utils.jar"/>
+  </path>
+  
+  <path id="library.mysql-connector-java-5.1.5-bin.classpath">
+    <pathelement location="${basedir}/libs/mysql-connector-java-5.1.5-bin.jar"/>
+  </path>
+  
+  <path id="library.poi.classpath">
+    <pathelement location="${basedir}/libs/poi3.2/poi-3.2-FINAL-20081019.jar"/>
+    <pathelement location="${basedir}/libs/poi3.2/poi-contrib-3.2-FINAL-20081019.jar"/>
+    <pathelement location="${basedir}/libs/poi3.2/poi-scratchpad-3.2-FINAL-20081019.jar"/>
+  </path>
+  
+  <path id="library.servlet-api.classpath">
+    <pathelement location="${basedir}/libs/web/jsp-api.jar"/>
+    <pathelement location="${basedir}/libs/web/servlet-api.jar"/>
+  </path>
+  
+  
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="util.jar"/>
+      <include name="3rd-party.jar"/>
+      <include name="jdom.jar"/>
+      <include name="forms_rt.jar"/>
+    </fileset>
+    <fileset dir="${idea.home}/plugins/java/lib">
+      <include name="javac2.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module CommonUtils -->
+  
+  <dirname property="module.commonutils.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.commonutils" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.commonutils" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.commonutils" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.commonutils" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="commonutils.output.dir" value="${module.commonutils.basedir}/classes/production/CommonUtils"/>
+  <property name="commonutils.testoutput.dir" value="${module.commonutils.basedir}/classes/test/CommonUtils"/>
+  
+  <path id="commonutils.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="commonutils.module.production.classpath">
+    <path refid="${module.jdk.classpath.commonutils}"/>
+    <path refid="library.servlet-api.classpath"/>
+  </path>
+  
+  <path id="commonutils.runtime.production.module.classpath">
+    <pathelement location="${commonutils.output.dir}"/>
+    <path refid="library.servlet-api.classpath"/>
+  </path>
+  
+  <path id="commonutils.module.classpath">
+    <path refid="${module.jdk.classpath.commonutils}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <path refid="library.servlet-api.classpath"/>
+  </path>
+  
+  <path id="commonutils.runtime.module.classpath">
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <path refid="library.servlet-api.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.commonutils">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.commonutils">
+    <patternset refid="excluded.from.module.commonutils"/>
+  </patternset>
+  
+  <path id="commonutils.module.sourcepath">
+    <dirset dir="${module.commonutils.basedir}/CommonUtils">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.commonutils" depends="compile.module.commonutils.production,compile.module.commonutils.tests" description="Compile module CommonUtils"/>
+  
+  <target name="compile.module.commonutils.production" depends="register.custom.compilers" description="Compile module CommonUtils; production classes">
+    <mkdir dir="${commonutils.output.dir}"/>
+    <javac2 destdir="${commonutils.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.commonutils}/javac">
+      <compilerarg line="${compiler.args.commonutils}"/>
+      <bootclasspath refid="commonutils.module.bootclasspath"/>
+      <classpath refid="commonutils.module.production.classpath"/>
+      <src refid="commonutils.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.commonutils"/>
+    </javac2>
+    
+    <copy todir="${commonutils.output.dir}">
+      <fileset dir="${module.commonutils.basedir}/CommonUtils/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.commonutils.tests" depends="register.custom.compilers,compile.module.commonutils.production" description="compile module CommonUtils; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.commonutils" description="cleanup module">
+    <delete dir="${commonutils.output.dir}"/>
+    <delete dir="${commonutils.testoutput.dir}"/>
+  </target>
+  
+  
+  
+  <!-- Module Formulas -->
+  
+  <dirname property="module.formulas.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.formulas" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.formulas" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.formulas" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.formulas" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="formulas.output.dir" value="${module.formulas.basedir}/classes/production/Formulas"/>
+  <property name="formulas.testoutput.dir" value="${module.formulas.basedir}/classes/test/Formulas"/>
+  
+  <path id="formulas.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="formulas.module.production.classpath">
+    <path refid="${module.jdk.classpath.formulas}"/>
+  </path>
+  
+  <path id="formulas.runtime.production.module.classpath">
+    <pathelement location="${formulas.output.dir}"/>
+  </path>
+  
+  <path id="formulas.module.classpath">
+    <path refid="${module.jdk.classpath.formulas}"/>
+    <pathelement location="${formulas.output.dir}"/>
+  </path>
+  
+  <path id="formulas.runtime.module.classpath">
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.formulas">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.formulas">
+    <patternset refid="excluded.from.module.formulas"/>
+  </patternset>
+  
+  <path id="formulas.module.sourcepath">
+    <dirset dir="${module.formulas.basedir}/Formulas">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.formulas" depends="compile.module.formulas.production,compile.module.formulas.tests" description="Compile module Formulas"/>
+  
+  <target name="compile.module.formulas.production" depends="register.custom.compilers" description="Compile module Formulas; production classes">
+    <mkdir dir="${formulas.output.dir}"/>
+    <javac2 destdir="${formulas.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.formulas}/javac">
+      <compilerarg line="${compiler.args.formulas}"/>
+      <bootclasspath refid="formulas.module.bootclasspath"/>
+      <classpath refid="formulas.module.production.classpath"/>
+      <src refid="formulas.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.formulas"/>
+    </javac2>
+    
+    <copy todir="${formulas.output.dir}">
+      <fileset dir="${module.formulas.basedir}/Formulas/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.formulas.tests" depends="register.custom.compilers,compile.module.formulas.production" description="compile module Formulas; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.formulas" description="cleanup module">
+    <delete dir="${formulas.output.dir}"/>
+    <delete dir="${formulas.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GPSUtils -->
+  
+  <dirname property="module.gpsutils.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.gpsutils" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.gpsutils" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.gpsutils" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.gpsutils" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="gpsutils.output.dir" value="${module.gpsutils.basedir}/classes/production/GPSUtils"/>
+  <property name="gpsutils.testoutput.dir" value="${module.gpsutils.basedir}/classes/test/GPSUtils"/>
+  
+  <path id="gpsutils.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="gpsutils.module.production.classpath">
+    <path refid="${module.jdk.classpath.gpsutils}"/>
+  </path>
+  
+  <path id="gpsutils.runtime.production.module.classpath">
+    <pathelement location="${gpsutils.output.dir}"/>
+  </path>
+  
+  <path id="gpsutils.module.classpath">
+    <path refid="${module.jdk.classpath.gpsutils}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+  </path>
+  
+  <path id="gpsutils.runtime.module.classpath">
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.gpsutils">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.gpsutils">
+    <patternset refid="excluded.from.module.gpsutils"/>
+  </patternset>
+  
+  <path id="gpsutils.module.sourcepath">
+    <dirset dir="${module.gpsutils.basedir}/GPSUtils">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.gpsutils" depends="compile.module.gpsutils.production,compile.module.gpsutils.tests" description="Compile module GPSUtils"/>
+  
+  <target name="compile.module.gpsutils.production" depends="register.custom.compilers" description="Compile module GPSUtils; production classes">
+    <mkdir dir="${gpsutils.output.dir}"/>
+    <javac2 destdir="${gpsutils.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.gpsutils}/javac">
+      <compilerarg line="${compiler.args.gpsutils}"/>
+      <bootclasspath refid="gpsutils.module.bootclasspath"/>
+      <classpath refid="gpsutils.module.production.classpath"/>
+      <src refid="gpsutils.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.gpsutils"/>
+    </javac2>
+    
+    <copy todir="${gpsutils.output.dir}">
+      <fileset dir="${module.gpsutils.basedir}/GPSUtils/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.gpsutils.tests" depends="register.custom.compilers,compile.module.gpsutils.production" description="compile module GPSUtils; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.gpsutils" description="cleanup module">
+    <delete dir="${gpsutils.output.dir}"/>
+    <delete dir="${gpsutils.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module FormatReaders -->
+  
+  <dirname property="module.formatreaders.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.formatreaders" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.formatreaders" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.formatreaders" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.formatreaders" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="formatreaders.output.dir" value="${module.formatreaders.basedir}/classes/production/FormatReaders"/>
+  <property name="formatreaders.testoutput.dir" value="${module.formatreaders.basedir}/classes/test/FormatReaders"/>
+  
+  <path id="formatreaders.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="formatreaders.module.production.classpath">
+    <path refid="${module.jdk.classpath.formatreaders}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+  </path>
+  
+  <path id="formatreaders.runtime.production.module.classpath">
+    <pathelement location="${formatreaders.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="formatreaders.module.classpath">
+    <path refid="${module.jdk.classpath.formatreaders}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+  </path>
+  
+  <path id="formatreaders.runtime.module.classpath">
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.formatreaders">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.formatreaders">
+    <patternset refid="excluded.from.module.formatreaders"/>
+  </patternset>
+  
+  <path id="formatreaders.module.sourcepath">
+    <dirset dir="${module.formatreaders.basedir}/FormatReaders">
+      <include name="FormatReaders"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.formatreaders" depends="compile.module.formatreaders.production,compile.module.formatreaders.tests" description="Compile module FormatReaders"/>
+  
+  <target name="compile.module.formatreaders.production" depends="register.custom.compilers,compile.module.commonutils" description="Compile module FormatReaders; production classes">
+    <mkdir dir="${formatreaders.output.dir}"/>
+    <javac2 destdir="${formatreaders.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.formatreaders}/javac">
+      <compilerarg line="${compiler.args.formatreaders}"/>
+      <bootclasspath refid="formatreaders.module.bootclasspath"/>
+      <classpath refid="formatreaders.module.production.classpath"/>
+      <src refid="formatreaders.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.formatreaders"/>
+    </javac2>
+    
+    <copy todir="${formatreaders.output.dir}">
+      <fileset dir="${module.formatreaders.basedir}/FormatReaders/FormatReaders">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.formatreaders.tests" depends="register.custom.compilers,compile.module.formatreaders.production" description="compile module FormatReaders; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.formatreaders" description="cleanup module">
+    <delete dir="${formatreaders.output.dir}"/>
+    <delete dir="${formatreaders.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GisUtils -->
+  
+  <dirname property="module.gisutils.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.gisutils" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.gisutils" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.gisutils" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.gisutils" value="-encoding UTF-8 -source 5 -target 5 ${compiler.args}"/>
+  
+  <property name="gisutils.output.dir" value="${module.gisutils.basedir}/classes/production/GisUtils"/>
+  <property name="gisutils.testoutput.dir" value="${module.gisutils.basedir}/classes/test/GisUtils"/>
+  
+  <path id="gisutils.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="gisutils.module.production.classpath">
+    <path refid="${module.jdk.classpath.gisutils}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisutils.runtime.production.module.classpath">
+    <pathelement location="${gisutils.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisutils.module.classpath">
+    <path refid="${module.jdk.classpath.gisutils}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisutils.runtime.module.classpath">
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.gisutils">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.gisutils">
+    <patternset refid="excluded.from.module.gisutils"/>
+  </patternset>
+  
+  <path id="gisutils.module.sourcepath">
+    <dirset dir="${module.gisutils.basedir}/GisUtils">
+      <include name="GisUtils"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.gisutils" depends="compile.module.gisutils.production,compile.module.gisutils.tests" description="Compile module GisUtils"/>
+  
+  <target name="compile.module.gisutils.production" depends="register.custom.compilers,compile.module.commonutils" description="Compile module GisUtils; production classes">
+    <mkdir dir="${gisutils.output.dir}"/>
+    <javac2 destdir="${gisutils.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.gisutils}/javac">
+      <compilerarg line="${compiler.args.gisutils}"/>
+      <bootclasspath refid="gisutils.module.bootclasspath"/>
+      <classpath refid="gisutils.module.production.classpath"/>
+      <src refid="gisutils.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.gisutils"/>
+    </javac2>
+    
+    <copy todir="${gisutils.output.dir}">
+      <fileset dir="${module.gisutils.basedir}/GisUtils/GisUtils">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.gisutils.tests" depends="register.custom.compilers,compile.module.gisutils.production" description="compile module GisUtils; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.gisutils" description="cleanup module">
+    <delete dir="${gisutils.output.dir}"/>
+    <delete dir="${gisutils.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GuiResource -->
+  
+  <dirname property="module.guiresource.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.guiresource" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.guiresource" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.guiresource" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.guiresource" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="guiresource.output.dir" value="${module.guiresource.basedir}/classes/production/GuiResource"/>
+  <property name="guiresource.testoutput.dir" value="${module.guiresource.basedir}/classes/test/GuiResource"/>
+  
+  <path id="guiresource.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+	<pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="guiresource.module.production.classpath">
+    <path refid="${module.jdk.classpath.guiresource}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+  </path>
+  
+  <path id="guiresource.runtime.production.module.classpath">
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="guiresource.module.classpath">
+    <path refid="${module.jdk.classpath.guiresource}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+  </path>
+  
+  <path id="guiresource.runtime.module.classpath">
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.guiresource">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.guiresource">
+    <patternset refid="excluded.from.module.guiresource"/>
+  </patternset>
+  
+  <path id="guiresource.module.sourcepath">
+    <dirset dir="${module.guiresource.basedir}/GuiResource">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.guiresource" depends="compile.module.guiresource.production,compile.module.guiresource.tests" description="Compile module GuiResource"/>
+  
+  <target name="compile.module.guiresource.production" depends="register.custom.compilers,compile.module.commonutils" description="Compile module GuiResource; production classes">
+    <mkdir dir="${guiresource.output.dir}"/>
+    <javac2 destdir="${guiresource.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.guiresource}/javac">
+      <compilerarg line="${compiler.args.guiresource}"/>
+      <bootclasspath refid="guiresource.module.bootclasspath"/>
+      <classpath refid="guiresource.module.production.classpath"/>
+      <src refid="guiresource.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.guiresource"/>
+    </javac2>
+    
+    <copy todir="${guiresource.output.dir}">
+      <fileset dir="${module.guiresource.basedir}/GuiResource/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.guiresource.tests" depends="register.custom.compilers,compile.module.guiresource.production" description="compile module GuiResource; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.guiresource" description="cleanup module">
+    <delete dir="${guiresource.output.dir}"/>
+    <delete dir="${guiresource.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module IToyKernel -->
+  
+  <dirname property="module.itoykernel.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.itoykernel" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.itoykernel" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.itoykernel" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.itoykernel" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="itoykernel.output.dir" value="${module.itoykernel.basedir}/classes/production/IToyKernel"/>
+  <property name="itoykernel.testoutput.dir" value="${module.itoykernel.basedir}/classes/test/IToyKernel"/>
+  
+  <path id="itoykernel.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="itoykernel.module.production.classpath">
+    <path refid="${module.jdk.classpath.itoykernel}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+  </path>
+  
+  <path id="itoykernel.runtime.production.module.classpath">
+    <pathelement location="${itoykernel.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+  </path>
+  
+  <path id="itoykernel.module.classpath">
+    <path refid="${module.jdk.classpath.itoykernel}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+  </path>
+  
+  <path id="itoykernel.runtime.module.classpath">
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.itoykernel">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.itoykernel">
+    <patternset refid="excluded.from.module.itoykernel"/>
+  </patternset>
+  
+  <path id="itoykernel.module.sourcepath">
+    <dirset dir="${module.itoykernel.basedir}/IToyKernel">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.itoykernel" depends="compile.module.itoykernel.production,compile.module.itoykernel.tests" description="Compile module IToyKernel"/>
+  
+  <target name="compile.module.itoykernel.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.gisutils" description="Compile module IToyKernel; production classes">
+    <mkdir dir="${itoykernel.output.dir}"/>
+    <javac2 destdir="${itoykernel.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.itoykernel}/javac">
+      <compilerarg line="${compiler.args.itoykernel}"/>
+      <bootclasspath refid="itoykernel.module.bootclasspath"/>
+      <classpath refid="itoykernel.module.production.classpath"/>
+      <src refid="itoykernel.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.itoykernel"/>
+    </javac2>
+    
+    <copy todir="${itoykernel.output.dir}">
+      <fileset dir="${module.itoykernel.basedir}/IToyKernel/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.itoykernel.tests" depends="register.custom.compilers,compile.module.itoykernel.production" description="compile module IToyKernel; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.itoykernel" description="cleanup module">
+    <delete dir="${itoykernel.output.dir}"/>
+    <delete dir="${itoykernel.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GPSConnector -->
+  
+  <dirname property="module.gpsconnector.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.gpsconnector" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.gpsconnector" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.gpsconnector" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.gpsconnector" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="gpsconnector.output.dir" value="${module.gpsconnector.basedir}/classes/production/GPSConnector"/>
+  <property name="gpsconnector.testoutput.dir" value="${module.gpsconnector.basedir}/classes/test/GPSConnector"/>
+  
+  <path id="gpsconnector.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="gpsconnector.module.production.classpath">
+    <path refid="${module.jdk.classpath.gpsconnector}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="gpsconnector.runtime.production.module.classpath">
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="gpsconnector.module.classpath">
+    <path refid="${module.jdk.classpath.gpsconnector}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="gpsconnector.runtime.module.classpath">
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.gpsconnector">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.gpsconnector">
+    <patternset refid="excluded.from.module.gpsconnector"/>
+  </patternset>
+  
+  <path id="gpsconnector.module.sourcepath">
+    <dirset dir="${module.gpsconnector.basedir}/GPSConnector">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.gpsconnector" depends="compile.module.gpsconnector.production,compile.module.gpsconnector.tests" description="Compile module GPSConnector"/>
+  
+  <target name="compile.module.gpsconnector.production" depends="register.custom.compilers,compile.module.gisutils,compile.module.gpsutils,compile.module.commonutils,compile.module.itoykernel" description="Compile module GPSConnector; production classes">
+    <mkdir dir="${gpsconnector.output.dir}"/>
+    <javac2 destdir="${gpsconnector.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.gpsconnector}/javac">
+      <compilerarg line="${compiler.args.gpsconnector}"/>
+      <bootclasspath refid="gpsconnector.module.bootclasspath"/>
+      <classpath refid="gpsconnector.module.production.classpath"/>
+      <src refid="gpsconnector.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.gpsconnector"/>
+    </javac2>
+    
+    <copy todir="${gpsconnector.output.dir}">
+      <fileset dir="${module.gpsconnector.basedir}/GPSConnector/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.gpsconnector.tests" depends="register.custom.compilers,compile.module.gpsconnector.production" description="compile module GPSConnector; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.gpsconnector" description="cleanup module">
+    <delete dir="${gpsconnector.output.dir}"/>
+    <delete dir="${gpsconnector.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module ToyKernels -->
+  
+  <dirname property="module.toykernels.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.toykernels" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.toykernels" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.toykernels" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.toykernels" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="toykernels.output.dir" value="${module.toykernels.basedir}/classes/production/ToyKernels"/>
+  <property name="toykernels.testoutput.dir" value="${module.toykernels.basedir}/classes/test/ToyKernels"/>
+  
+  <path id="toykernels.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="toykernels.module.production.classpath">
+    <path refid="${module.jdk.classpath.toykernels}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toykernels.runtime.production.module.classpath">
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toykernels.module.classpath">
+    <path refid="${module.jdk.classpath.toykernels}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toykernels.runtime.module.classpath">
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.toykernels">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.toykernels">
+    <patternset refid="excluded.from.module.toykernels"/>
+  </patternset>
+  
+  <path id="toykernels.module.sourcepath">
+    <dirset dir="${module.toykernels.basedir}/ToyKernels">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.toykernels" depends="compile.module.toykernels.production,compile.module.toykernels.tests" description="Compile module ToyKernels"/>
+  
+  <target name="compile.module.toykernels.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.gisutils,compile.module.itoykernel,compile.module.formulas" description="Compile module ToyKernels; production classes">
+    <mkdir dir="${toykernels.output.dir}"/>
+    <javac2 destdir="${toykernels.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.toykernels}/javac">
+      <compilerarg line="${compiler.args.toykernels}"/>
+      <bootclasspath refid="toykernels.module.bootclasspath"/>
+      <classpath refid="toykernels.module.production.classpath"/>
+      <src refid="toykernels.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.toykernels"/>
+    </javac2>
+    
+    <copy todir="${toykernels.output.dir}">
+      <fileset dir="${module.toykernels.basedir}/ToyKernels/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.toykernels.tests" depends="register.custom.compilers,compile.module.toykernels.production" description="compile module ToyKernels; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.toykernels" description="cleanup module">
+    <delete dir="${toykernels.output.dir}"/>
+    <delete dir="${toykernels.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module DxfAddIn -->
+  
+  <dirname property="module.dxfaddin.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.dxfaddin" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.dxfaddin" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.dxfaddin" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.dxfaddin" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="dxfaddin.output.dir" value="${module.dxfaddin.basedir}/classes/production/DxfAddIn"/>
+  <property name="dxfaddin.testoutput.dir" value="${module.dxfaddin.basedir}/classes/test/DxfAddIn"/>
+  
+  <path id="dxfaddin.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="dxfaddin.module.production.classpath">
+    <path refid="${module.jdk.classpath.dxfaddin}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="dxfaddin.runtime.production.module.classpath">
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="dxfaddin.module.classpath">
+    <path refid="${module.jdk.classpath.dxfaddin}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="dxfaddin.runtime.module.classpath">
+    <pathelement location="${dxfaddin.testoutput.dir}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.dxfaddin">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.dxfaddin">
+    <patternset refid="excluded.from.module.dxfaddin"/>
+  </patternset>
+  
+  <path id="dxfaddin.module.sourcepath">
+    <dirset dir="${module.dxfaddin.basedir}/DxfAddIn">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.dxfaddin" depends="compile.module.dxfaddin.production,compile.module.dxfaddin.tests" description="Compile module DxfAddIn"/>
+  
+  <target name="compile.module.dxfaddin.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.gisutils,compile.module.itoykernel,compile.module.toykernels" description="Compile module DxfAddIn; production classes">
+    <mkdir dir="${dxfaddin.output.dir}"/>
+    <javac2 destdir="${dxfaddin.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.dxfaddin}/javac">
+      <compilerarg line="${compiler.args.dxfaddin}"/>
+      <bootclasspath refid="dxfaddin.module.bootclasspath"/>
+      <classpath refid="dxfaddin.module.production.classpath"/>
+      <src refid="dxfaddin.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.dxfaddin"/>
+    </javac2>
+    
+    <copy todir="${dxfaddin.output.dir}">
+      <fileset dir="${module.dxfaddin.basedir}/DxfAddIn/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.dxfaddin.tests" depends="register.custom.compilers,compile.module.dxfaddin.production" description="compile module DxfAddIn; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.dxfaddin" description="cleanup module">
+    <delete dir="${dxfaddin.output.dir}"/>
+    <delete dir="${dxfaddin.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module ToyGuiKernel -->
+  
+  <dirname property="module.toyguikernel.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.toyguikernel" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.toyguikernel" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.toyguikernel" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.toyguikernel" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="toyguikernel.output.dir" value="${module.toyguikernel.basedir}/classes/production/ToyGuiKernel"/>
+  <property name="toyguikernel.testoutput.dir" value="${module.toyguikernel.basedir}/classes/test/ToyGuiKernel"/>
+  
+  <path id="toyguikernel.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+	<pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="toyguikernel.module.production.classpath">
+    <path refid="${module.jdk.classpath.toyguikernel}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toyguikernel.runtime.production.module.classpath">
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="gpsconnector.runtime.production.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toyguikernel.module.classpath">
+    <path refid="${module.jdk.classpath.toyguikernel}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="toyguikernel.runtime.module.classpath">
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="gpsconnector.runtime.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.toyguikernel">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.toyguikernel">
+    <patternset refid="excluded.from.module.toyguikernel"/>
+  </patternset>
+  
+  <path id="toyguikernel.module.sourcepath">
+    <dirset dir="${module.toyguikernel.basedir}/ToyGuiKernel">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.toyguikernel" depends="compile.module.toyguikernel.production,compile.module.toyguikernel.tests" description="Compile module ToyGuiKernel"/>
+  
+  <target name="compile.module.toyguikernel.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.guiresource,compile.module.itoykernel,compile.module.toykernels,compile.module.gisutils,compile.module.gpsutils,compile.module.gpsconnector" description="Compile module ToyGuiKernel; production classes">
+    <mkdir dir="${toyguikernel.output.dir}"/>
+    <javac2 destdir="${toyguikernel.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.toyguikernel}/javac">
+      <compilerarg line="${compiler.args.toyguikernel}"/>
+      <bootclasspath refid="toyguikernel.module.bootclasspath"/>
+      <classpath refid="toyguikernel.module.production.classpath"/>
+      <src refid="toyguikernel.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.toyguikernel"/>
+    </javac2>
+    
+    <copy todir="${toyguikernel.output.dir}">
+      <fileset dir="${module.toyguikernel.basedir}/ToyGuiKernel/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.toyguikernel.tests" depends="register.custom.compilers,compile.module.toyguikernel.production" description="compile module ToyGuiKernel; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.toyguikernel" description="cleanup module">
+    <delete dir="${toyguikernel.output.dir}"/>
+    <delete dir="${toyguikernel.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module AnalitPlugIn -->
+  
+  <dirname property="module.analitplugin.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.analitplugin" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.analitplugin" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.analitplugin" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.analitplugin" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="analitplugin.output.dir" value="${module.analitplugin.basedir}/classes/production/AnalitPlugIn"/>
+  <property name="analitplugin.testoutput.dir" value="${module.analitplugin.basedir}/classes/test/AnalitPlugIn"/>
+  
+  <path id="analitplugin.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="analitplugin.module.production.classpath">
+    <path refid="${module.jdk.classpath.analitplugin}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="analitplugin.runtime.production.module.classpath">
+    <pathelement location="${analitplugin.output.dir}"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="analitplugin.module.classpath">
+    <path refid="${module.jdk.classpath.analitplugin}"/>
+    <pathelement location="${analitplugin.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="analitplugin.runtime.module.classpath">
+    <pathelement location="${analitplugin.testoutput.dir}"/>
+    <pathelement location="${analitplugin.output.dir}"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.analitplugin">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.analitplugin">
+    <patternset refid="excluded.from.module.analitplugin"/>
+  </patternset>
+  
+  <path id="analitplugin.module.sourcepath">
+    <dirset dir="${module.analitplugin.basedir}/AnalitPlugIn">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.analitplugin" depends="compile.module.analitplugin.production,compile.module.analitplugin.tests" description="Compile module AnalitPlugIn"/>
+  
+  <target name="compile.module.analitplugin.production" depends="register.custom.compilers,compile.module.gisutils,compile.module.guiresource,compile.module.itoykernel,compile.module.toyguikernel,compile.module.toykernels,compile.module.commonutils,compile.module.formulas" description="Compile module AnalitPlugIn; production classes">
+    <mkdir dir="${analitplugin.output.dir}"/>
+    <javac2 destdir="${analitplugin.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.analitplugin}/javac">
+      <compilerarg line="${compiler.args.analitplugin}"/>
+      <bootclasspath refid="analitplugin.module.bootclasspath"/>
+      <classpath refid="analitplugin.module.production.classpath"/>
+      <src refid="analitplugin.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.analitplugin"/>
+    </javac2>
+    
+    <copy todir="${analitplugin.output.dir}">
+      <fileset dir="${module.analitplugin.basedir}/AnalitPlugIn/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.analitplugin.tests" depends="register.custom.compilers,compile.module.analitplugin.production" description="compile module AnalitPlugIn; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.analitplugin" description="cleanup module">
+    <delete dir="${analitplugin.output.dir}"/>
+    <delete dir="${analitplugin.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module BinApps -->
+  
+  <dirname property="module.binapps.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.binapps" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.binapps" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.binapps" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.binapps" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="binapps.output.dir" value="${module.binapps.basedir}/classes/production/BinApps"/>
+  <property name="binapps.testoutput.dir" value="${module.binapps.basedir}/classes/test/BinApps"/>
+  
+  <path id="binapps.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="binapps.module.production.classpath">
+    <path refid="${module.jdk.classpath.binapps}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.5-bin.classpath"/>
+  </path>
+  
+  <path id="binapps.runtime.production.module.classpath">
+    <pathelement location="${binapps.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formatreaders.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsconnector.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.5-bin.classpath"/>
+  </path>
+  
+  <path id="binapps.module.classpath">
+    <path refid="${module.jdk.classpath.binapps}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.5-bin.classpath"/>
+  </path>
+  
+  <path id="binapps.runtime.module.classpath">
+    <pathelement location="${binapps.testoutput.dir}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formatreaders.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsconnector.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.5-bin.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.binapps">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.binapps">
+    <patternset refid="excluded.from.module.binapps"/>
+  </patternset>
+  
+  <path id="binapps.module.sourcepath">
+    <dirset dir="${module.binapps.basedir}/Apps">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.binapps" depends="compile.module.binapps.production,compile.module.binapps.tests" description="Compile module BinApps"/>
+  
+  <target name="compile.module.binapps.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.formatreaders,compile.module.formulas,compile.module.gisutils,compile.module.gpsconnector,compile.module.gpsutils,compile.module.guiresource,compile.module.itoykernel,compile.module.toyguikernel,compile.module.toykernels" description="Compile module BinApps; production classes">
+    <mkdir dir="${binapps.output.dir}"/>
+    <javac2 destdir="${binapps.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.binapps}/javac">
+      <compilerarg line="${compiler.args.binapps}"/>
+      <bootclasspath refid="binapps.module.bootclasspath"/>
+      <classpath refid="binapps.module.production.classpath"/>
+      <src refid="binapps.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.binapps"/>
+    </javac2>
+    
+    <copy todir="${binapps.output.dir}">
+      <fileset dir="${module.binapps.basedir}/Apps/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.binapps.tests" depends="register.custom.compilers,compile.module.binapps.production" description="compile module BinApps; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.binapps" description="cleanup module">
+    <delete dir="${binapps.output.dir}"/>
+    <delete dir="${binapps.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module Converters -->
+  
+  <dirname property="module.converters.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.converters" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.converters" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.converters" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.converters" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="converters.output.dir" value="${module.converters.basedir}/classes/production/Converters"/>
+  <property name="converters.testoutput.dir" value="${module.converters.basedir}/classes/test/Converters"/>
+  
+  <path id="converters.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="converters.module.production.classpath">
+    <path refid="${module.jdk.classpath.converters}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.dbf.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="converters.runtime.production.module.classpath">
+    <pathelement location="${converters.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formatreaders.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="dxfaddin.runtime.production.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.dbf.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="converters.module.classpath">
+    <path refid="${module.jdk.classpath.converters}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${dxfaddin.testoutput.dir}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.dbf.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="converters.runtime.module.classpath">
+    <pathelement location="${converters.testoutput.dir}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formatreaders.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="dxfaddin.runtime.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.dbf.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.converters">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.converters">
+    <patternset refid="excluded.from.module.converters"/>
+  </patternset>
+  
+  <path id="converters.module.sourcepath">
+    <dirset dir="${module.converters.basedir}/Converters">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.converters" depends="compile.module.converters.production,compile.module.converters.tests" description="Compile module Converters"/>
+  
+  <target name="compile.module.converters.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.formatreaders,compile.module.gisutils,compile.module.itoykernel,compile.module.toykernels,compile.module.gpsutils,compile.module.dxfaddin" description="Compile module Converters; production classes">
+    <mkdir dir="${converters.output.dir}"/>
+    <javac2 destdir="${converters.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.converters}/javac">
+      <compilerarg line="${compiler.args.converters}"/>
+      <bootclasspath refid="converters.module.bootclasspath"/>
+      <classpath refid="converters.module.production.classpath"/>
+      <src refid="converters.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.converters"/>
+    </javac2>
+    
+    <copy todir="${converters.output.dir}">
+      <fileset dir="${module.converters.basedir}/Converters/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.converters.tests" depends="register.custom.compilers,compile.module.converters.production" description="compile module Converters; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.converters" description="cleanup module">
+    <delete dir="${converters.output.dir}"/>
+    <delete dir="${converters.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module FacilTable -->
+  
+  <dirname property="module.faciltable.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.faciltable" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.faciltable" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.faciltable" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.faciltable" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="faciltable.output.dir" value="${module.faciltable.basedir}/classes/production/FacilTable"/>
+  <property name="faciltable.testoutput.dir" value="${module.faciltable.basedir}/classes/test/FacilTable"/>
+  
+  <path id="faciltable.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="faciltable.module.production.classpath">
+    <path refid="${module.jdk.classpath.faciltable}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="faciltable.runtime.production.module.classpath">
+    <pathelement location="${faciltable.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="faciltable.module.classpath">
+    <path refid="${module.jdk.classpath.faciltable}"/>
+    <pathelement location="${faciltable.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  <path id="faciltable.runtime.module.classpath">
+    <pathelement location="${faciltable.testoutput.dir}"/>
+    <pathelement location="${faciltable.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.faciltable">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.faciltable">
+    <patternset refid="excluded.from.module.faciltable"/>
+  </patternset>
+  
+  <path id="faciltable.module.sourcepath">
+    <dirset dir="${module.faciltable.basedir}/FacilTable">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.faciltable" depends="compile.module.faciltable.production,compile.module.faciltable.tests" description="Compile module FacilTable"/>
+  
+  <target name="compile.module.faciltable.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.formulas,compile.module.gisutils,compile.module.itoykernel,compile.module.toyguikernel,compile.module.toykernels,compile.module.guiresource" description="Compile module FacilTable; production classes">
+    <mkdir dir="${faciltable.output.dir}"/>
+    <javac2 destdir="${faciltable.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.faciltable}/javac">
+      <compilerarg line="${compiler.args.faciltable}"/>
+      <bootclasspath refid="faciltable.module.bootclasspath"/>
+      <classpath refid="faciltable.module.production.classpath"/>
+      <src refid="faciltable.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.faciltable"/>
+    </javac2>
+    
+    <copy todir="${faciltable.output.dir}">
+      <fileset dir="${module.faciltable.basedir}/FacilTable/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.faciltable.tests" depends="register.custom.compilers,compile.module.faciltable.production" description="compile module FacilTable; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.faciltable" description="cleanup module">
+    <delete dir="${faciltable.output.dir}"/>
+    <delete dir="${faciltable.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GisAdvance -->
+  
+  <dirname property="module.gisadvance.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.gisadvance" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.gisadvance" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.gisadvance" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.gisadvance" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="gisadvance.output.dir" value="${module.gisadvance.basedir}/classes/production/GisAdvance"/>
+  <property name="gisadvance.testoutput.dir" value="${module.gisadvance.basedir}/classes/test/GisAdvance"/>
+  
+  <path id="gisadvance.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+	<pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="gisadvance.module.production.classpath">
+    <path refid="${module.jdk.classpath.gisadvance}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisadvance.runtime.production.module.classpath">
+    <pathelement location="${gisadvance.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formatreaders.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsconnector.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisadvance.module.classpath">
+    <path refid="${module.jdk.classpath.gisadvance}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="gisadvance.runtime.module.classpath">
+    <pathelement location="${gisadvance.testoutput.dir}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formatreaders.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsconnector.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.gisadvance">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.gisadvance">
+    <patternset refid="excluded.from.module.gisadvance"/>
+  </patternset>
+  
+  <path id="gisadvance.module.sourcepath">
+    <dirset dir="${module.gisadvance.basedir}/GisAdvance">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.gisadvance" depends="compile.module.gisadvance.production,compile.module.gisadvance.tests" description="Compile module GisAdvance"/>
+  
+  <target name="compile.module.gisadvance.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.formatreaders,compile.module.formulas,compile.module.gisutils,compile.module.gpsconnector,compile.module.gpsutils,compile.module.itoykernel,compile.module.toyguikernel,compile.module.toykernels,compile.module.guiresource" description="Compile module GisAdvance; production classes">
+    <mkdir dir="${gisadvance.output.dir}"/>
+    <javac2 destdir="${gisadvance.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.gisadvance}/javac">
+      <compilerarg line="${compiler.args.gisadvance}"/>
+      <bootclasspath refid="gisadvance.module.bootclasspath"/>
+      <classpath refid="gisadvance.module.production.classpath"/>
+      <src refid="gisadvance.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.gisadvance"/>
+    </javac2>
+    
+    <copy todir="${gisadvance.output.dir}">
+      <fileset dir="${module.gisadvance.basedir}/GisAdvance/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.gisadvance.tests" depends="register.custom.compilers,compile.module.gisadvance.production" description="compile module GisAdvance; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.gisadvance" description="cleanup module">
+    <delete dir="${gisadvance.output.dir}"/>
+    <delete dir="${gisadvance.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module GuiPlugIns -->
+  
+  <dirname property="module.guiplugins.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.guiplugins" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.guiplugins" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.guiplugins" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.guiplugins" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="guiplugins.output.dir" value="${module.guiplugins.basedir}/classes/production/GuiPlugIns"/>
+  <property name="guiplugins.testoutput.dir" value="${module.guiplugins.basedir}/classes/test/GuiPlugIns"/>
+  
+  <path id="guiplugins.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+    	<pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="guiplugins.module.production.classpath">
+    <path refid="${module.jdk.classpath.guiplugins}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="guiplugins.runtime.production.module.classpath">
+    <pathelement location="${guiplugins.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="guiplugins.module.classpath">
+    <path refid="${module.jdk.classpath.guiplugins}"/>
+    <pathelement location="${guiplugins.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  <path id="guiplugins.runtime.module.classpath">
+    <pathelement location="${guiplugins.testoutput.dir}"/>
+    <pathelement location="${guiplugins.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.guiplugins">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.guiplugins">
+    <patternset refid="excluded.from.module.guiplugins"/>
+  </patternset>
+  
+  <path id="guiplugins.module.sourcepath">
+    <dirset dir="${module.guiplugins.basedir}/GuiPlugIns">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.guiplugins" depends="compile.module.guiplugins.production,compile.module.guiplugins.tests" description="Compile module GuiPlugIns"/>
+  
+  <target name="compile.module.guiplugins.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.gisutils,compile.module.itoykernel,compile.module.toykernels,compile.module.toyguikernel,compile.module.guiresource" description="Compile module GuiPlugIns; production classes">
+    <mkdir dir="${guiplugins.output.dir}"/>
+    <javac2 destdir="${guiplugins.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.guiplugins}/javac">
+      <compilerarg line="${compiler.args.guiplugins}"/>
+      <bootclasspath refid="guiplugins.module.bootclasspath"/>
+      <classpath refid="guiplugins.module.production.classpath"/>
+      <src refid="guiplugins.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.guiplugins"/>
+    </javac2>
+    
+    <copy todir="${guiplugins.output.dir}">
+      <fileset dir="${module.guiplugins.basedir}/GuiPlugIns/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.guiplugins.tests" depends="register.custom.compilers,compile.module.guiplugins.production" description="compile module GuiPlugIns; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.guiplugins" description="cleanup module">
+    <delete dir="${guiplugins.output.dir}"/>
+    <delete dir="${guiplugins.testoutput.dir}"/>
+  </target>
+  
+  
+  
+  <!-- Module Test -->
+  
+  <dirname property="module.test.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.test" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.test" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.test" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.test" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="test.output.dir" value="${module.test.basedir}/classes/production/Test"/>
+  <property name="test.testoutput.dir" value="${module.test.basedir}/classes/test/Test"/>
+  
+  <path id="test.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+    <pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="test.module.production.classpath">
+    <path refid="${module.jdk.classpath.test}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.access_jdbc30.classpath"/>
+  </path>
+  
+  <path id="test.runtime.production.module.classpath">
+    <pathelement location="${test.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="formatreaders.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsconnector.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="gisadvance.runtime.production.module.classpath"/>
+    <path refid="binapps.runtime.production.module.classpath"/>
+    <path refid="converters.runtime.production.module.classpath"/>
+    <path refid="dxfaddin.runtime.production.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.access_jdbc30.classpath"/>
+  </path>
+  
+  <path id="test.module.classpath">
+    <path refid="${module.jdk.classpath.test}"/>
+    <pathelement location="${test.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${gisadvance.testoutput.dir}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <pathelement location="${binapps.testoutput.dir}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <pathelement location="${converters.testoutput.dir}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <pathelement location="${dxfaddin.testoutput.dir}"/>
+    <pathelement location="${dxfaddin.output.dir}"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.access_jdbc30.classpath"/>
+  </path>
+  
+  <path id="test.runtime.module.classpath">
+    <pathelement location="${test.testoutput.dir}"/>
+    <pathelement location="${test.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="formatreaders.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsconnector.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="gisadvance.runtime.module.classpath"/>
+    <path refid="binapps.runtime.module.classpath"/>
+    <path refid="converters.runtime.module.classpath"/>
+    <path refid="dxfaddin.runtime.module.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.jts.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+    <path refid="library.access_jdbc30.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.test">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.test">
+    <patternset refid="excluded.from.module.test"/>
+  </patternset>
+  
+  <path id="test.module.sourcepath">
+    <dirset dir="${module.test.basedir}/Test">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.test" depends="compile.module.test.production,compile.module.test.tests" description="Compile module Test"/>
+  
+  <target name="compile.module.test.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.formatreaders,compile.module.formulas,compile.module.gisutils,compile.module.gpsconnector,compile.module.gpsutils,compile.module.guiresource,compile.module.itoykernel,compile.module.toyguikernel,compile.module.toykernels,compile.module.gisadvance,compile.module.binapps,compile.module.converters,compile.module.dxfaddin" description="Compile module Test; production classes">
+    <mkdir dir="${test.output.dir}"/>
+    <javac2 destdir="${test.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.test}/javac">
+      <compilerarg line="${compiler.args.test}"/>
+      <bootclasspath refid="test.module.bootclasspath"/>
+      <classpath refid="test.module.production.classpath"/>
+      <src refid="test.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.test"/>
+    </javac2>
+    
+    <copy todir="${test.output.dir}">
+      <fileset dir="${module.test.basedir}/Test/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.test.tests" depends="register.custom.compilers,compile.module.test.production" description="compile module Test; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.test" description="cleanup module">
+    <delete dir="${test.output.dir}"/>
+    <delete dir="${test.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module BuildingsSample -->
+  
+  <dirname property="module.buildingssample.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.buildingssample" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.buildingssample" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.buildingssample" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.buildingssample" value="-encoding UTF-8 -source 6 -target 6 ${compiler.args}"/>
+  
+  <property name="buildingssample.output.dir" value="${module.buildingssample.basedir}/classes/production/BuildingsSample"/>
+  <property name="buildingssample.testoutput.dir" value="${module.buildingssample.basedir}/classes/test/BuildingsSample"/>
+  
+  <path id="buildingssample.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+	<pathelement location="${basedir}/libs/idea/forms_rt.jar"/>
+  </path>
+  
+  <path id="buildingssample.module.production.classpath">
+    <path refid="${module.jdk.classpath.buildingssample}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiplugins.output.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${test.output.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <pathelement location="${analitplugin.output.dir}"/>
+    <path refid="library.poi.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.appache.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="buildingssample.runtime.production.module.classpath">
+    <pathelement location="${buildingssample.output.dir}"/>
+    <path refid="commonutils.runtime.production.module.classpath"/>
+    <path refid="converters.runtime.production.module.classpath"/>
+    <path refid="formatreaders.runtime.production.module.classpath"/>
+    <path refid="formulas.runtime.production.module.classpath"/>
+    <path refid="gisadvance.runtime.production.module.classpath"/>
+    <path refid="gisutils.runtime.production.module.classpath"/>
+    <path refid="gpsconnector.runtime.production.module.classpath"/>
+    <path refid="gpsutils.runtime.production.module.classpath"/>
+    <path refid="guiplugins.runtime.production.module.classpath"/>
+    <path refid="guiresource.runtime.production.module.classpath"/>
+    <path refid="itoykernel.runtime.production.module.classpath"/>
+    <path refid="test.runtime.production.module.classpath"/>
+    <path refid="toyguikernel.runtime.production.module.classpath"/>
+    <path refid="toykernels.runtime.production.module.classpath"/>
+    <path refid="binapps.runtime.production.module.classpath"/>
+    <path refid="analitplugin.runtime.production.module.classpath"/>
+    <path refid="library.poi.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.appache.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="buildingssample.module.classpath">
+    <path refid="${module.jdk.classpath.buildingssample}"/>
+    <pathelement location="${buildingssample.output.dir}"/>
+    <pathelement location="${commonutils.testoutput.dir}"/>
+    <pathelement location="${commonutils.output.dir}"/>
+    <pathelement location="${converters.testoutput.dir}"/>
+    <pathelement location="${converters.output.dir}"/>
+    <pathelement location="${formatreaders.testoutput.dir}"/>
+    <pathelement location="${formatreaders.output.dir}"/>
+    <pathelement location="${formulas.testoutput.dir}"/>
+    <pathelement location="${formulas.output.dir}"/>
+    <pathelement location="${gisadvance.testoutput.dir}"/>
+    <pathelement location="${gisadvance.output.dir}"/>
+    <pathelement location="${gisutils.testoutput.dir}"/>
+    <pathelement location="${gisutils.output.dir}"/>
+    <pathelement location="${gpsconnector.testoutput.dir}"/>
+    <pathelement location="${gpsconnector.output.dir}"/>
+    <pathelement location="${gpsutils.testoutput.dir}"/>
+    <pathelement location="${gpsutils.output.dir}"/>
+    <pathelement location="${guiplugins.testoutput.dir}"/>
+    <pathelement location="${guiplugins.output.dir}"/>
+    <pathelement location="${guiresource.testoutput.dir}"/>
+    <pathelement location="${guiresource.output.dir}"/>
+    <pathelement location="${itoykernel.testoutput.dir}"/>
+    <pathelement location="${itoykernel.output.dir}"/>
+    <pathelement location="${test.testoutput.dir}"/>
+    <pathelement location="${test.output.dir}"/>
+    <pathelement location="${toyguikernel.testoutput.dir}"/>
+    <pathelement location="${toyguikernel.output.dir}"/>
+    <pathelement location="${toykernels.testoutput.dir}"/>
+    <pathelement location="${toykernels.output.dir}"/>
+    <pathelement location="${binapps.testoutput.dir}"/>
+    <pathelement location="${binapps.output.dir}"/>
+    <pathelement location="${analitplugin.testoutput.dir}"/>
+    <pathelement location="${analitplugin.output.dir}"/>
+    <path refid="library.poi.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.appache.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  <path id="buildingssample.runtime.module.classpath">
+    <pathelement location="${buildingssample.testoutput.dir}"/>
+    <pathelement location="${buildingssample.output.dir}"/>
+    <path refid="commonutils.runtime.module.classpath"/>
+    <path refid="converters.runtime.module.classpath"/>
+    <path refid="formatreaders.runtime.module.classpath"/>
+    <path refid="formulas.runtime.module.classpath"/>
+    <path refid="gisadvance.runtime.module.classpath"/>
+    <path refid="gisutils.runtime.module.classpath"/>
+    <path refid="gpsconnector.runtime.module.classpath"/>
+    <path refid="gpsutils.runtime.module.classpath"/>
+    <path refid="guiplugins.runtime.module.classpath"/>
+    <path refid="guiresource.runtime.module.classpath"/>
+    <path refid="itoykernel.runtime.module.classpath"/>
+    <path refid="test.runtime.module.classpath"/>
+    <path refid="toyguikernel.runtime.module.classpath"/>
+    <path refid="toykernels.runtime.module.classpath"/>
+    <path refid="binapps.runtime.module.classpath"/>
+    <path refid="analitplugin.runtime.module.classpath"/>
+    <path refid="library.poi.classpath"/>
+    <path refid="library.mobyplace.classpath"/>
+    <path refid="library.appache.classpath"/>
+    <path refid="library.geotols_min.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.buildingssample">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.buildingssample">
+    <patternset refid="excluded.from.module.buildingssample"/>
+  </patternset>
+  
+  <path id="buildingssample.module.sourcepath">
+    <dirset dir="${module.buildingssample.basedir}/BuildingsSample">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.buildingssample" depends="compile.module.buildingssample.production,compile.module.buildingssample.tests" description="Compile module BuildingsSample"/>
+  
+  <target name="compile.module.buildingssample.production" depends="register.custom.compilers,compile.module.commonutils,compile.module.converters,compile.module.formatreaders,compile.module.formulas,compile.module.gisadvance,compile.module.gisutils,compile.module.gpsconnector,compile.module.gpsutils,compile.module.guiplugins,compile.module.guiresource,compile.module.itoykernel,compile.module.test,compile.module.toyguikernel,compile.module.toykernels,compile.module.binapps,compile.module.analitplugin" description="Compile module BuildingsSample; production classes">
+    <mkdir dir="${buildingssample.output.dir}"/>
+    <javac2 destdir="${buildingssample.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.buildingssample}/javac">
+      <compilerarg line="${compiler.args.buildingssample}"/>
+      <bootclasspath refid="buildingssample.module.bootclasspath"/>
+      <classpath refid="buildingssample.module.production.classpath"/>
+      <src refid="buildingssample.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.buildingssample"/>
+    </javac2>
+    
+    <copy todir="${buildingssample.output.dir}">
+      <fileset dir="${module.buildingssample.basedir}/BuildingsSample/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.buildingssample.tests" depends="register.custom.compilers,compile.module.buildingssample.production" description="compile module BuildingsSample; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.buildingssample" description="cleanup module">
+    <delete dir="${buildingssample.output.dir}"/>
+    <delete dir="${buildingssample.testoutput.dir}"/>
+  </target>
+  
+  
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.commonutils, clean.module.formulas, clean.module.gpsutils, clean.module.formatreaders, clean.module.gisutils, clean.module.guiresource, clean.module.itoykernel, clean.module.gpsconnector, clean.module.toykernels, clean.module.dxfaddin, clean.module.toyguikernel, clean.module.analitplugin, clean.module.binapps, clean.module.converters, clean.module.faciltable, clean.module.gisadvance, clean.module.guiplugins, clean.module.test, clean.module.buildingssample, clean.artifact.analitplugin_jar, clean.artifact.guiplugins_jar" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.commonutils, compile.module.formulas, compile.module.gpsutils, compile.module.formatreaders, compile.module.gisutils, compile.module.guiresource, compile.module.itoykernel, compile.module.gpsconnector, compile.module.toykernels, compile.module.dxfaddin, compile.module.toyguikernel, compile.module.analitplugin, compile.module.binapps, compile.module.converters, compile.module.faciltable, compile.module.gisadvance, compile.module.guiplugins,  compile.module.test, compile.module.buildingssample" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.analitplugin_jar" value="${basedir}/AnalitPlugIn"/>
+    <property name="artifact.output.guiplugins_jar" value="${basedir}/GuiPlugIns"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.AnalitPlugIn.jar" value="${artifacts.temp.dir}/AnalitPlugIn.jar"/>
+    <property name="temp.jar.path.PlugIns.jar" value="${artifacts.temp.dir}/PlugIns.jar"/>
+  </target>
+  
+  <target name="clean.artifact.analitplugin_jar" description="clean AnalitPlugIn_jar artifact output">
+    <delete dir="${artifact.output.analitplugin_jar}"/>
+  </target>
+  
+  <target name="clean.artifact.guiplugins_jar" description="clean GuiPlugIns_jar artifact output">
+    <delete dir="${artifact.output.guiplugins_jar}"/>
+  </target>
+  
+  <target name="artifact.analitplugin_jar" depends="init.artifacts, compile.module.analitplugin" description="Build &#39;AnalitPlugIn_jar&#39; artifact">
+    <mkdir dir="${artifact.output.analitplugin_jar}"/>
+    <jar destfile="${temp.jar.path.AnalitPlugIn.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${analitplugin.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.AnalitPlugIn.jar}" tofile="${artifact.output.analitplugin_jar}/AnalitPlugIn.jar"/>
+  </target>
+  
+  <target name="artifact.guiplugins_jar" depends="init.artifacts, compile.module.guiplugins" description="Build &#39;GuiPlugIns_jar&#39; artifact">
+    <mkdir dir="${artifact.output.guiplugins_jar}"/>
+    <jar destfile="${temp.jar.path.PlugIns.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${guiplugins.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.PlugIns.jar}" tofile="${artifact.output.guiplugins_jar}/PlugIns.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.analitplugin_jar, artifact.guiplugins_jar" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

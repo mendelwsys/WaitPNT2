@@ -1,0 +1,1 @@
+ant -f waitpnt2.xml all

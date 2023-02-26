@@ -237,6 +237,7 @@
     <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/GPSConnector/src/su/org/coder3/gpstransl/SkelGPSClient.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/x.txt" charset="windows-1251" />
   </component>
   <component name="ExportToHTMLSettings">
@@ -462,6 +463,8 @@
       <module fileurl="file://$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" filepath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonUtils/CommonUtils.iml" filepath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/Converters/Converters.iml" filepath="$PROJECT_DIR$/Converters/Converters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ToyDFX/DFX1/DFX1.iml" filepath="$PROJECT_DIR$/../ToyDFX/DFX1/DFX1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DFX2/DFX2.iml" filepath="$PROJECT_DIR$/DFX2/DFX2.iml" />
       <module fileurl="file://$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" filepath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/FacilTable/FacilTable.iml" filepath="$PROJECT_DIR$/FacilTable/FacilTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/FormatReaders/FormatReaders.iml" filepath="$PROJECT_DIR$/FormatReaders/FormatReaders.iml" />
@@ -517,14 +520,90 @@
     </option>
   </component>
   <component name="libraryTable">
-    <library name="gwt-user">
+    <library name="Access_JDBC30">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../../../Projects/JavaProj/libs/gwt/gwt-user.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/Access_JDBC30/Access_JDBC30.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../../../Projects/JavaProj/libs/gwt/gwt-user.jar!/" />
-      </SOURCES>
+      <SOURCES />
+    </library>
+    <library name="appache">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/web/jsp-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/web/servlet-api.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="dbf">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/dbf/javadbf-0.4.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="forms_rt">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/idea/forms_rt.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="geotols_min">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/geotols_min/geoapi-nogenerics-2.1-M6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/geotols_min/gt2-metadata-2.4-M4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/geotols_min/gt2-referencing-2.4-M4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/geotols_min/jsr108-0.01.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/geotols_min/vecmath-1.3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jts">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/jts/acme.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/jdom.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/jts-1.8.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/JTS_Test.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/jtsio-1.8.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/junit.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jts/xerces.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="mobyplace">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/mobyplace/multiplexer.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/mobyplace/utils.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="mysql-connector-java-5.1.5-bin">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.5-bin.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="poi">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/poi3.2/poi-3.2-FINAL-20081019.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/poi3.2/poi-contrib-3.2-FINAL-20081019.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/poi3.2/poi-scratchpad-3.2-FINAL-20081019.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="servlet-api">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/web/jsp-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/web/servlet-api.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
 </project>
