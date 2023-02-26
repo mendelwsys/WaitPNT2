@@ -37,13 +37,10 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="Fix Layer Style internalization">
-      <change afterPath="$PROJECT_DIR$/bld.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/idea/forms_rt.jar" afterDir="false" />
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaitPNT2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -1012,7 +1009,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.15174508" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -1055,7 +1052,7 @@
       <recent name="ru.ts.toykernel.drawcomp.rules.def" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RZDFacil">
+  <component name="RunManager" selected="Application.RZDFacil_Demo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -2947,7 +2944,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677408828908</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Adding waitpnt2.xml for ant builder">
+      <created>1677433896611</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677433896611</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3029,7 +3033,8 @@
     <MESSAGE value="Fix Layer Style internalization" />
     <MESSAGE value="Local library dependencies" />
     <MESSAGE value="Adding English readMe.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding English readMe.txt" />
+    <MESSAGE value="Adding waitpnt2.xml for ant builder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding waitpnt2.xml for ant builder" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="VssConfiguration">
