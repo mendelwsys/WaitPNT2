@@ -11,7 +11,7 @@
     <orderEntry type="module" module-name="GisUtils" />
     <orderEntry type="module" module-name="IToyKernel" />
     <orderEntry type="module" module-name="ToyKernels" />
-    <orderEntry type="library" name="jts" level="application" />
-    <orderEntry type="library" name="mobyplace" level="application" />
+    <orderEntry type="library" name="jts" level="project" />
+    <orderEntry type="library" name="mobyplace" level="project" />
   </component>
 </module>

@@ -37,7 +37,23 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="Fix Layer Style internalization">
+      <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/BinApps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/BinApps.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Converters/Converters.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Converters/Converters.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacilTable/FacilTable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FacilTable/FacilTable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GisAdvance/GisAdvance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GisAdvance/GisAdvance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GisUtils/GisUtils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GisUtils/GisUtils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiPlugIns/GuiPlugIns.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/GuiPlugIns.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/Test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToyGuiKernel/ToyGuiKernel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ToyGuiKernel/ToyGuiKernel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToyKernels/ToyKernels.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ToyKernels/ToyKernels.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WaitPNT2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -988,10 +1004,11 @@
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_WaitPNT2/web/Web2" value="C:\Documents and Settings\vladm\Local Settings\Temp\webExplodedDir50589tmp" />
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_Web2Mob/web/Web" value="C:\Documents and Settings\vladm\Local Settings\Temp\webExplodedDir42038tmp" />
     <property name="TEMP_MODULE_EXPLODED_DIR_FOR_Web2Mob/web/Web2" value="C:\Documents and Settings\vladm\Local Settings\Temp\webExplodedDir19540tmp" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/BuildingsSample/src/ru/ts/toykernel" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DFX2/DFX2.iml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/mysql-connector-java-5.1.5-bin.jar" />
     <property name="options.lastSelected" value="preferences.externalResources" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1039,7 +1056,7 @@
       <recent name="ru.ts.toykernel.drawcomp.rules.def" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DxfView_Demo">
+  <component name="RunManager" selected="Application.ViewShpTver_Demo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -1600,7 +1617,7 @@
     <configuration name="RZDFacil" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.ts.tapp.TBuilderProject01" />
       <module name="BuildingsSample" />
-      <option name="PROGRAM_PARAMETERS" value="-wfl..\MAPDIR_WK\LAYERS_NNN\all_rzd_bind_demo6_fasil_n_analit_demo.xml" />
+      <option name="PROGRAM_PARAMETERS" value="-wfl..\MAPDIR_WK\LAYERS_NNN\all_rzd_bind_demo6_fasil_n_analit_demo.xml -lngru" />
       <option name="VM_PARAMETERS" value="-Xms128M  -Xmx800M" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -1609,7 +1626,7 @@
     <configuration name="RZDFacil_Demo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.ts.tapp.TBuilderProject01" />
       <module name="BuildingsSample" />
-      <option name="PROGRAM_PARAMETERS" value="-wfl.\MAPDIR\LAYERS_NNN\all_rzd_bind_demo6_fasil_n_analit_demo.xml -lngru" />
+      <option name="PROGRAM_PARAMETERS" value="-wfl.\MAPDIR\LAYERS_NNN\all_rzd_bind_demo6_fasil_n_analit_demo.xml" />
       <option name="VM_PARAMETERS" value="-Xms128M  -Xmx800M" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -2800,7 +2817,112 @@
       <option name="project" value="LOCAL" />
       <updated>1677231868108</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="DFX EXCLUDE 5">
+      <created>1677238371903</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677238371903</updated>
+    </task>
+    <task id="LOCAL-00005" summary="DFX EXCLUDE 5">
+      <created>1677240651267</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677240651267</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Legend internationalization">
+      <created>1677240727124</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677240727124</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix Layer Style internalization">
+      <created>1677241976118</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677241976118</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fix ViewPanel internalization">
+      <created>1677254712440</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677254712440</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix Analitic Redrawing">
+      <created>1677260780053</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677260780053</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix Analitic Layer02">
+      <created>1677261617840</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677261617840</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix Layer Style internalization">
+      <created>1677261675930</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677261675930</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix Layer Analitics legent">
+      <created>1677261956758</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677261956758</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix Layer Style internalization">
+      <created>1677271435375</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677271435375</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix Layer Style internalization">
+      <created>1677336122062</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336122062</updated>
+    </task>
+    <task id="LOCAL-00015" summary="read_ru.txt me adding">
+      <created>1677336319234</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336319234</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fix Layer Style internalization">
+      <created>1677336431779</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336431779</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix Layer Style internalization">
+      <created>1677336647389</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336647389</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix Layer Style internalization">
+      <created>1677336926789</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336926789</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -2872,7 +2994,14 @@
     <option name="PERFORM_COMMIT_IN_BACKGROUND" value="false" />
     <MESSAGE value="DFX EXCLUDE 4" />
     <MESSAGE value="DFX EXCLUDE 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="DFX EXCLUDE 5" />
+    <MESSAGE value="Legend internationalization" />
+    <MESSAGE value="Fix ViewPanel internalization" />
+    <MESSAGE value="Fix Analitic Redrawing" />
+    <MESSAGE value="Fix Analitic Layer02" />
+    <MESSAGE value="Fix Layer Analitics legent" />
+    <MESSAGE value="read_ru.txt me adding" />
+    <MESSAGE value="Fix Layer Style internalization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Layer Style internalization" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="VssConfiguration">
@@ -2998,11 +3127,6 @@
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ToyKernels/src/ru/ts/toykernel/xml/def/XMLBuilder.java</url>
-          <line>224</line>
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/CommonUtils/src/su/mwlib/utils/Enc.java</url>
           <line>69</line>
           <option name="timeStamp" value="174" />
@@ -3011,6 +3135,11 @@
           <url>file://$PROJECT_DIR$/BuildingsRZD/src/su/org/imglab/clengine/LayerOptions.java</url>
           <line>66</line>
           <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GuiPlugIns/src/ru/ts/toykernel/plugins/geditor/SetStyleDlg.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="181" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

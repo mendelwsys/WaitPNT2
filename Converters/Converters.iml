@@ -11,21 +11,11 @@
     <orderEntry type="module" module-name="FormatReaders" />
     <orderEntry type="module" module-name="GisUtils" />
     <orderEntry type="module" module-name="IToyKernel" />
-    <orderEntry type="library" name="mobyplace" level="application" />
     <orderEntry type="module" module-name="ToyKernels" />
-    <orderEntry type="library" name="dbf" level="application" />
     <orderEntry type="module" module-name="GPSUtils" />
-    <orderEntry type="library" name="geotols_min" level="application" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../ToyDFX/DFX1/lib/miethxml-ui.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module" module-name="DxfAddIn" />
-    <orderEntry type="library" name="dbf" level="application" />
+    <orderEntry type="library" name="mobyplace" level="project" />
+    <orderEntry type="library" name="dbf" level="project" />
+    <orderEntry type="library" name="geotols_min" level="project" />
   </component>
 </module>

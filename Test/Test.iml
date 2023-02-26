@@ -18,13 +18,12 @@
     <orderEntry type="module" module-name="ToyGuiKernel" />
     <orderEntry type="module" module-name="ToyKernels" />
     <orderEntry type="module" module-name="GisAdvance" />
-    <orderEntry type="library" name="mobyplace" level="application" />
-    <orderEntry type="library" name="jts" level="application" />
-    <orderEntry type="library" name="dbf" level="application" />
-    <orderEntry type="library" name="geotols_min" level="application" />
     <orderEntry type="module" module-name="BinApps" />
     <orderEntry type="module" module-name="Converters" />
     <orderEntry type="module" module-name="DxfAddIn" />
-    <orderEntry type="library" name="Access_JDBC30" level="application" />
+    <orderEntry type="library" name="mobyplace" level="project" />
+    <orderEntry type="library" name="jts" level="project" />
+    <orderEntry type="library" name="geotols_min" level="project" />
+    <orderEntry type="library" name="Access_JDBC30" level="project" />
   </component>
 </module>

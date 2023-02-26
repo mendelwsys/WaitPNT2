@@ -17,8 +17,8 @@
     <orderEntry type="module" module-name="IToyKernel" />
     <orderEntry type="module" module-name="ToyGuiKernel" />
     <orderEntry type="module" module-name="ToyKernels" />
-    <orderEntry type="library" name="geotols_min" level="application" />
-    <orderEntry type="library" name="jts" level="application" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.5-bin" level="application" />
+    <orderEntry type="library" name="geotols_min" level="project" />
+    <orderEntry type="library" name="jts" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.5-bin" level="project" />
   </component>
 </module>

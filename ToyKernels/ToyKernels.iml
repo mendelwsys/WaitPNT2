@@ -10,8 +10,8 @@
     <orderEntry type="module" module-name="CommonUtils" />
     <orderEntry type="module" module-name="GisUtils" />
     <orderEntry type="module" module-name="IToyKernel" />
-    <orderEntry type="library" name="jts" level="application" />
-    <orderEntry type="library" name="geotols_min" level="application" />
     <orderEntry type="module" module-name="Formulas" />
+    <orderEntry type="library" name="jts" level="project" />
+    <orderEntry type="library" name="geotols_min" level="project" />
   </component>
 </module>

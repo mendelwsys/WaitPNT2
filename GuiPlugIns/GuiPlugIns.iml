@@ -13,7 +13,7 @@
     <orderEntry type="module" module-name="ToyKernels" />
     <orderEntry type="module" module-name="ToyGuiKernel" />
     <orderEntry type="module" module-name="GuiResource" />
-    <orderEntry type="library" name="mobyplace" level="application" />
-    <orderEntry type="library" name="jts" level="application" />
+    <orderEntry type="library" name="mobyplace" level="project" />
+    <orderEntry type="library" name="jts" level="project" />
   </component>
 </module>
