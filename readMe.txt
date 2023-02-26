@@ -1,19 +1,15 @@
-Библиотека  ToyGIS предназначена для работы с векторными и растровыми изображениями различной природы, (картография, конструкторские изображения, отсканированные изображения)
+The ToyGIS library is designed to work with vector and raster images of various nature, (cartography, design images, scanned images)
 
-Проект(для IntelliJ IDEA 2021) включает в себя несколько примеров использования библиотеки. Векторные карты для городов Москва и Псков ( карты получены из формата MP ), фрагмент Тверской области ( улицы и дороги), Чертеж полученный из формата dxf, приложение показывающее пример совмещения растрового слоя и векторного на примере карты Ростова Великого,с демонстрацией плагина ввода графической информации, а так же демонстрационная программа совмещающая карту нескольких железнодорожных вокзалов и остановочных пунктов с табличной информацией об этих объектах, такой как назначение, площадь, год постройки, процент износа и т.д. Вся векторная информация на русском языке.  
+The project (for IntelliJ IDEA 2021) includes several examples of using the library. Vector maps for the cities of Moscow and Pskov (maps obtained from MP format), a fragment of the Tver region (streets and roads), Drawing obtained from dxf format, an application showing an example of combining a raster layer and a vector one on the example of a map of Rostov Veliky, with a demonstration of a plug-in for entering graphic information , as well as a demo program that combines a map of several railway stations and stops with tabular information about these objects, such as purpose, area, year of construction, wear percentage, etc. All vector information in Russian.
 
-Для запуска приложений необходимо скачать информацию для отображения по 
-ссылке https://cloud.mail.ru/public/Rpfi/5PPhHhrSB  и распаковать архив  в папку ToyGIS. Вся информация после этого должна находится в папке  ToyGIS/MAPDIR.
+To run applications, you need to download information to display by
+link https://cloud.mail.ru/public/Rpfi/5PPhHhrSB and unpack the archive into the ToyGIS folder. All information after that should be in the ToyGIS/MAPDIR folder.
 
-Приложения можно запустить из среды разработки, по умолчанию интерфейс английский.(-lngru параметр для перехода на русский язык при запуске)
+Applications can be run from the development environment, the default interface is English. (-lngru parameter to switch to Russian at startup)
 
-Краткое описание функциональности приложений:
+Brief description of the application functionality:
 
-Функциональность просмотра изображений стандартная - сдвиг увеличение уменьшение с помощью мыши и клавиатуры, выделение областей интереса Ctrl+Rigth Mosue Button. В каждый проект включен поисковый плагин, Для того что бы посмотреть объект - двойной щелчок правой кнопки мыши в области объекта – откроется диалог плагина со списком объекта попавших в область клика мыши. Можно просто искать объект по имени, на туллбаре есть соответствующая иконка. Для просмотра всех аттрибутов объект надо щелкнуть два раза левой кнопкой мыши над ним. Появится диалог для просмотра всех аттрибутов объектов попавших в область мыши. Можно так же управлять набором слоев для отображения. Набор стилей для каждого слоя так же можно менять. 
+Image viewing functionality is standard - shift zoom in zoom out with the mouse and keyboard, selection of areas of interest Ctrl+Rigth Mosue Button. A search plug-in is included in each project. In order to view an object - double-clicking the right mouse button in the object area - the plugin dialog will open with a list of the object that fell into the mouse click area. You can simply search for an object by name, there is a corresponding icon on the toolbar.
+To view all the attributes of an object, double-click the left mouse button over it. A dialog will appear to view all the attributes of the objects in the mouse area. You can also manage the set of layers to display. The set of styles for each layer can also be changed.
 
-Приложение для отображения объектов ЖД визуализирует табличную информацию вместе с картографической, позволяет делать простые операции выделения объектов по критерию, по попадаю в область интереса, а так же  демонстрирует возможность визуализации количественного параметра объектов поверх карты.   
-
-
-
-
-
+The application for displaying railway objects visualizes tabular information along with cartographic information, allows you to perform simple operations for selecting objects by a criterion, by falling into an area of interest, and also demonstrates the possibility of visualizing the quantitative parameter of objects over a map.
