@@ -38,23 +38,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="Fix Layer Style internalization">
-      <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/BinApps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/BinApps.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BuildingsSample/BuildingsSample.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CommonUtils/CommonUtils.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Converters/Converters.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Converters/Converters.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DxfAddIn/DxfAddIn.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FacilTable/FacilTable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FacilTable/FacilTable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GisAdvance/GisAdvance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GisAdvance/GisAdvance.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GisUtils/GisUtils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GisUtils/GisUtils.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiPlugIns/GuiPlugIns.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/GuiPlugIns.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToyGuiKernel/ToyGuiKernel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ToyGuiKernel/ToyGuiKernel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToyKernels/ToyKernels.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ToyKernels/ToyKernels.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaitPNT2.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +53,9 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
     <option name="REVERSE_PATCH" value="false" />
+  </component>
+  <component name="Cvs2Configuration">
+    <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="DebuggerManager">
     <method_breakpoints converted="true">
@@ -2922,7 +2909,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677336926789</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adding local library">
+      <created>1677406728667</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1677406728667</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3001,7 +2995,8 @@
     <MESSAGE value="Fix Layer Analitics legent" />
     <MESSAGE value="read_ru.txt me adding" />
     <MESSAGE value="Fix Layer Style internalization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Layer Style internalization" />
+    <MESSAGE value="Adding local library" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding local library" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="VssConfiguration">
