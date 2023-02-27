@@ -9,7 +9,7 @@ Demo video in Russian can be viewed at https://drive.google.com/drive/folders/1i
 
 To build the demo applications, you can use ant (version> 1.6), for this you need to set jdk.home.1.6 and idea.home in the waitpnt2.properties file, run the build bld.cmd
 
-To run applications, you must specify the path in the files *Demo to Java (only 32-bit version >=1.6), you need to download information to display by link https://cloud.mail.ru/public/Rpfi/5PPhHhrSB and unpack the archive into the ToyGIS folder. All information after that should be in the ToyGIS/MAPDIR folder.
+To run applications, you must specify the path in the files *Demo to Java (only 32-bit version >=1.6), you need to download information to display by link https://drive.google.com/file/d/1_ERxjg8uI_nx2l9DGG5InJEyJ_ZpAs-T/view?usp=sharing (OR https://cloud.mail.ru/public/Rpfi/5PPhHhrSB) and unpack the archive into the ToyGIS folder. All information after that should be in the ToyGIS/MAPDIR folder.
 
 Applications can be run from the development environment, the default interface is English. (-lngru parameter to switch to Russian at startup)
 

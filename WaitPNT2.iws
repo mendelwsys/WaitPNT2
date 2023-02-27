@@ -37,9 +37,7 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
-    </list>
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -2985,7 +2983,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677484759619</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Adding description and cmd files to start demo applications">
+      <created>1677511512769</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677511512769</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
