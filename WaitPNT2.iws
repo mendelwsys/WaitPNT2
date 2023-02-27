@@ -37,9 +37,8 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="Adding description and cmd files to start demo applications">
-      <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readMe_ru.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe_ru.txt" afterDir="false" />
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1050,7 +1049,7 @@
       <recent name="ru.ts.toykernel.drawcomp.rules.def" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Pskov_Demo">
+  <component name="RunManager" selected="Application.ViewShpTver_Demo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -1613,7 +1612,9 @@
       <module name="BuildingsSample" />
       <option name="PROGRAM_PARAMETERS" value="-wfl..\MAPDIR_WK\LAYERS_NNN\all_rzd_bind_demo6_fasil_n_analit_demo.xml -lngru" />
       <option name="VM_PARAMETERS" value="-Xms128M  -Xmx800M" />
-      <method v="2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RZDFacil_Demo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.ts.tapp.TBuilderProject01" />
@@ -2970,7 +2971,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677484467183</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adding description and cmd files to start demo applications">
+      <created>1677484686892</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1677484686892</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Adding description and cmd files to start demo applications">
+      <created>1677484759619</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1677484759619</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">

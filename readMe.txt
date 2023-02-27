@@ -3,6 +3,10 @@ The ToyGIS library is designed to work with vector and raster images of various 
 The project (for IntelliJ IDEA 2021) includes several examples of using the library. Vector maps for the cities of Moscow and Pskov (maps obtained from MP format), a fragment of the Tver region (streets and roads), Drawing obtained from dxf format, an application showing an example of combining a raster layer and a vector one on the example of a map of Rostov Veliky, with a demonstration of a plug-in for entering graphic information , as well as a demo program that combines a map of several railway stations and stops with tabular information about these objects, such as purpose, area, year of construction, wear percentage, etc. All vector information in Russian.
 
 To build the demo applications, you need Java(32-bit only >=1.6) IntelliJ IDEA (versions >= IntelliJ IDEA 2021.2 (Community Edition)).
+
+Demo video in Russian can be viewed at https://drive.google.com/drive/folders/1iFJvMIJ0lAJC5YY370k2FpXjL1MoZ6Vb?usp=sharing
+(OR https://cloud.mail.ru/public/X4M1/PnE9qDFrv)
+
 To build the demo applications, you can use ant (version> 1.6), for this you need to set jdk.home.1.6 and idea.home in the waitpnt2.properties file, run the build bld.cmd
 
 To run applications, you must specify the path in the files *Demo to Java (only 32-bit version >=1.6), you need to download information to display by link https://cloud.mail.ru/public/Rpfi/5PPhHhrSB and unpack the archive into the ToyGIS folder. All information after that should be in the ToyGIS/MAPDIR folder.
