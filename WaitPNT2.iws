@@ -37,10 +37,7 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" beforeDir="false" afterPath="$PROJECT_DIR$/AnalitPlugIn/AnalitPlugIn.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" beforeDir="false" afterPath="$PROJECT_DIR$/GuiPlugIns/PlugIns.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaitPNT2.iws" beforeDir="false" afterPath="$PROJECT_DIR$/WaitPNT2.iws" afterDir="false" />
+    <list default="true" id="a7e14c21-4300-41ef-8db1-c69634315fb2" name="Default" comment="Adding description and cmd files to start demo applications">
       <change beforePath="$PROJECT_DIR$/readMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readMe_ru.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readMe_ru.txt" afterDir="false" />
     </list>
@@ -2959,7 +2956,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677434926882</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Adding description and cmd files to start demo applications">
+      <created>1677484373310</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1677484373310</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Adding description and cmd files to start demo applications">
+      <created>1677484467183</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677484467183</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3042,7 +3053,8 @@
     <MESSAGE value="Local library dependencies" />
     <MESSAGE value="Adding English readMe.txt" />
     <MESSAGE value="Adding waitpnt2.xml for ant builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding waitpnt2.xml for ant builder" />
+    <MESSAGE value="Adding description and cmd files to start demo applications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding description and cmd files to start demo applications" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="VssConfiguration">
